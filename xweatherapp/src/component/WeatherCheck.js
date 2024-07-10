@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import styles from "./weatherCheck.module.css";
+
 
 function WeatherCheck() {
     const[city,setCity]=useState('');
@@ -46,23 +46,23 @@ function WeatherCheck() {
         <div>
             <input type='text' value={city} onChange={handleInputChange} placeholder='Enter city name'/>
             <button onClick={handleSearch}>Search</button>
-            {loading && <p>Loading data…</p>}
+            {loading && <p>Loading data...</p>}
             {error && <p>{error}</p>}
             {weather &&(
-                <div className={styles.weatherCards}>
-                    <div className={styles.weatherCard}>
+                <div className='weather-cards'>
+                    <div className='weather-card'>
                     <h2>Temperature</h2>
                    <p>{weather.current.temp_c} °C</p>
              </div>
-             <div className={styles.weatherCard}>
+             <div className='weather-card'>
             <h2>Humidity</h2>
             <p>{weather.current.humidity} %</p>
           </div>
-          <div className={styles.weatherCard}>
+          <div className='weather-card'>
             <h2>Condition</h2>
             <p>{weather.current.condition.text}</p>
           </div>
-          <div className={styles.weatherCard}>
+          <div className='weather-card'>
             <h2>Wind Speed</h2>
             <p>{weather.current.wind_kph} kph</p>
             </div>
